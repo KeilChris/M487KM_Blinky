@@ -340,22 +340,22 @@ SH_End
  * @details  This function is implement to print r0, r1, r2, r3, r12, lr, pc, psr.
  *
  */
-void HardFault_Handler(void)
-{
-    asm("MOVS    r0, #4                        \n"
-        "MOV     r1, LR                        \n"
-        "TST     r0, r1                        \n" /*; check LR bit 2 */
-        "BEQ     1f                            \n" /*; stack use MSP */
-        "MRS     R0, PSP                       \n" /*; stack use PSP, read PSP */
-        "MOV     R1, LR                        \n" /*; LR current value */
-        "B       Hard_Fault_Handler            \n"
-        "1:                                    \n"
-        "MRS     R0, MSP                       \n" /*; LR current value */
-        "B       Hard_Fault_Handler            \n"    
-        ::[Hard_Fault_Handler] "r" (Hard_Fault_Handler) // input
-    );
-    while(1);
-}
+//void HardFault_Handler(void)
+//{
+//    asm("MOVS    r0, #4                        \n"
+//        "MOV     r1, LR                        \n"
+//        "TST     r0, r1                        \n" /*; check LR bit 2 */
+//        "BEQ     1f                            \n" /*; stack use MSP */
+//        "MRS     R0, PSP                       \n" /*; stack use PSP, read PSP */
+//        "MOV     R1, LR                        \n" /*; LR current value */
+//        "B       Hard_Fault_Handler            \n"
+//        "1:                                    \n"
+//        "MRS     R0, MSP                       \n" /*; LR current value */
+//        "B       Hard_Fault_Handler            \n"    
+//        ::[Hard_Fault_Handler] "r" (Hard_Fault_Handler) // input
+//    );
+//    while(1);
+//}
 
 # elif defined(__ICCARM__)
 
