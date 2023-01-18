@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/0.9.3/tools/projmgr/schemas/csolution.schema.json
+
+solution:
+  packs:
+    - pack: ARM::CMSIS
+    - pack: ARM::CMSIS-Driver
+
+    # packs for NuMicro-M487KM
+    - pack: Nuvoton::NuMicro_DFP
+      for-type:
+        - +NuMaker-PFM-M487KM
+    - pack: MDK-Packs::Nuvoton_M480BSP
+      for-type:
+        - +NuMaker-PFM-M487KM
+
+  target-types:
+    - type: NuMaker-PFM-M487KM
+      board: Nuvoton::NuMaker-PFM-M487KM
+      device: Nuvoton::M487JIDAE
+
+  build-types:
+    - type: Debug
+      compiler: AC6
+      misc:
+        - C:
+          - -O1
+          - -g
+          - -Wno-macro-redefined
+          - -Wno-pragma-pack
+          - -Wno-parentheses-equality
+          - -std=c99
+        - ASM:
+          - -masm=auto
+        - Link:
+          - --entry=Reset_Handler
+          - --diag_suppress 6314
+    - type: Release
+      compiler: AC6
+      misc:
+        - C:
+          - -O3
+          - -Wno-macro-redefined
+          - -Wno-pragma-pack
+          - -Wno-parentheses-equality
+          - -std=c99
+        - ASM:
+          - -masm=auto
+        - Link:
+          - --entry=Reset_Handler
+          - --diag_suppress 6314
+
+  projects:
+    - project: ./Blinky.cproject.yml

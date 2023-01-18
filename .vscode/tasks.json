@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmsis-csolution.build",
+			"project": "${command:cmsis-csolution.getCprjPath}",
+			"problemMatcher": [],
+			"label": "cmsis-csolution.build: Build"
+		},
+		{
+			"type": "embedded-debug.flash",
+			"serialNumber": "${command:device-manager.getSerialNumber}",
+			"program": "${command:cmsis-csolution.getBinaryFile}",
+			"cmsisPack": "${env:CMSIS_PACK_ROOT}/.Download/Nuvoton.NuMicro_DFP.1.3.18.pack",
+			"problemMatcher": [],
+			"label": "Flash M487JIDE",
+			"group": "build"
+		}
+	]
+}

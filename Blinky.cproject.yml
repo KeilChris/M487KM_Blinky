@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/schemas/projmgr/0.9.3/tools/projmgr/schemas/cproject.schema.json
+
+project:
+  groups:
+    - group: Documentation
+      files: 
+        - file: ./README.md
+    - group: Application
+      files:
+        - file: ./Blinky.c
+        - file: ./Blinky.M487KMCAN_Flash.sct
+    - group: Library
+      files:
+        - file: ./Library/StdDriver/src/clk.c
+        - file: ./Library/StdDriver/src/gpio.c
+        - file: ./Library/StdDriver/src/sys.c
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: Nuvoton::Device:Startup
