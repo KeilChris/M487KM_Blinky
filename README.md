@@ -17,4 +17,4 @@ Target
 ------
 
 - **M487KMCAN Flash** is configured for on-chip Flash of the [NuMaker-M487KM board](https://www.nuvoton.com/board/numaker-pfm-m487km).
-- If you want to yous it with the older NuMaker-PFM-M487, remove the M487KMCAN define from the project.
+- If you want to use it with the older NuMaker-PFM-M487, remove the M487KMCAN define from the project.
