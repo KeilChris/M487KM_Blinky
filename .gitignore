@@ -54,3 +54,6 @@ dkms.conf
 # Generated folders
 out/
 tmp/
+*.cbuild-idx.yml
+*.cprj
+*.cbuild.yml
